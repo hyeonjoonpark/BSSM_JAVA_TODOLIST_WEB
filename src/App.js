@@ -14,6 +14,10 @@ const Title = styled.h1`
 const TodoList = styled.ul`
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 10px;
 `;
 
 const TodoItem = styled.li`
@@ -132,37 +136,42 @@ function App() {
           <TodoItem key={todo.id}>
             {editingTodoId === todo.id ? (
               <>
-                <Input
-                  type="text"
-                  value={editingTitle}
-                  onChange={(e) => setEditingTitle(e.target.value)}
-                  placeholder="제목"
-                />
-                <Input
-                  type="text"
-                  value={editingDetail}
-                  onChange={(e) => setEditingDetail(e.target.value)}
-                  placeholder="내용"
-                />
-                <Input
-                  type="date"
-                  value={editingStartDate}
-                  onChange={(e) => setEditingStartDate(e.target.value)}
-                />
+                <div>
+                  <Input
+                    type="text"
+                    value={editingTitle}
+                    onChange={(e) => setEditingTitle(e.target.value)}
+                    placeholder="제목"
+                  />
+                </div>
+                <div>
+                  <Input
+                    type="text"
+                    value={editingDetail}
+                    onChange={(e) => setEditingDetail(e.target.value)}
+                    placeholder="내용"
+                  />
+                </div>
+                <div>
+                  <Input
+                    type="date"
+                    value={editingStartDate}
+                    onChange={(e) => setEditingStartDate(e.target.value)}
+                  />
+                </div>
                 <Button onClick={saveEdit}>저장</Button>
               </>
             ) : (
-              <>
-                <div>
-                  <div>{todo.id}. {todo.title}</div>
-                  <div>{todo.detail}</div>
-                  <div>{todo.startDate}</div>
-                </div>
+              <div>
+                <div>{todo.id}. {todo.title}</div>
+                <div>{todo.detail}</div>
+                <div>{todo.startDate}</div>
+                <br></br>
                 <div>
                   <Button onClick={() => startEditing(todo)}>수정</Button>
                   <DeleteButton onClick={() => deleteTodo(todo.id)}>삭제</DeleteButton>
                 </div>
-              </>
+              </div>
             )}
           </TodoItem>
         ))}
