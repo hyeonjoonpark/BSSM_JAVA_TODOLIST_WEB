@@ -168,8 +168,8 @@ function App() {
                 <div>{todo.startDate}</div>
                 <br></br>
                 <div>
-                  <Button onClick={() => startEditing(todo)}>수정</Button>
-                  <DeleteButton onClick={() => deleteTodo(todo.id)}>삭제</DeleteButton>
+                  <Button onClick={() => startEditing(todo)}>수정하기</Button>
+                  <DeleteButton onClick={() => deleteTodo(todo.id)}>삭제하기</DeleteButton>
                 </div>
               </div>
             )}
@@ -195,7 +195,7 @@ function App() {
           value={startDate}
           onChange={(e) => setStartDate(e.target.value)}
         />
-        <Button onClick={addTodo}>추가</Button>
+        <Button onClick={addTodo}>추가하기</Button>
       </div>
     </Container>
   );
